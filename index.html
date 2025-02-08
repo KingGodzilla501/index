@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffdde1;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 980px;
+            height: 500px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        h1 {
+            color: #d63384;
+        }
+        .buttons-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            position: relative;
+        }
+        .gif {
+            width: 150px;
+            height: 150px;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+            position: relative;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: font-size 0.3s ease-in-out, padding 0.3s ease-in-out;
+        }
+        .yes {
+            background-color: #ff4081;
+            color: white;
+        }
+        .no {
+            background-color: #ccc;
+            color: black;
+            position: relative;
+        }
+        .mensaje {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #d63384;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Quieres ser mi San Valentín?👉👈</h1>
+        <div class="buttons-container">
+            <img src="flores.gif" alt="GIF 1" class="gif">
+            <div class="buttons">
+                <button class="yes" onclick="window.location.href='http://127.0.0.1:5500/respuesta.html'">Chi (⁠๑ꈍ⁠ᴗ⁠ꈍ⁠⁠๑⁠)</button>
+                <button class="no" onmouseover="moverBoton()">Ño .⁠·⁠´⁠¯⁠⁠(⁠>⁠▂⁠<⁠)⁠´⁠¯⁠⁠·⁠.</button>
+                <p id="mensaje" class="mensaje"></p>
+            </div>
+            <img src="cyber-nomx-bigmimixel.gif" alt="GIF 2" class="gif">
+        </div>
+    </div>
+
+    <script>
+        let posicion = 0;
+        let direccion = 1;
+        let tamanoSi = 20;
+        let mensajes = [
+            "Yo se que chi quieres ʕ⁠っ⁠•⁠ᴥ⁠•⁠ʔ⁠っ",
+            "Segura? :p",
+            "El si esta mas bonito (⁠´⁠∩⁠｡⁠•⁠ ⁠ᵕ⁠ ⁠•⁠｡⁠∩⁠`⁠)",
+            "tengo algo bonito para ti (⁠つ⁠✧⁠ω⁠✧⁠)⁠つ",
+            "Chegura? (⁠╥⁠﹏⁠╥⁠)"
+        ];
+        let indiceMensaje = 0;
+
+        function moverBoton() {
+            let botonNo = document.querySelector(".no");
+            let botonSi = document.querySelector(".yes");
+            let mensaje = document.getElementById("mensaje");
+            
+            posicion += 400 * direccion;
+            direccion *= -1; 
+            botonNo.style.transform = `translateX(${posicion}px)`;
+            
+            tamanoSi += 2;
+            botonSi.style.fontSize = `${tamanoSi}px`;
+            botonSi.style.padding = `${tamanoSi / 2}px ${tamanoSi}px`;
+            
+            mensaje.textContent = mensajes[indiceMensaje];
+            indiceMensaje = (indiceMensaje + 1) % mensajes.length;
+        }
+    </script>
+</body>
+</html>
