@@ -84,7 +84,7 @@
         <div class="buttons-container">
             <img src="flores.gif" alt="GIF 1" class="gif">
             <div class="buttons">
-                <button class="yes" onclick="abrirVentana()">Chi (⁠๑ꈍ⁠ᴗ⁠ꈍ⁠⁠๑⁠)</button>
+                <button class="yes" onclick="window.location.href='http://127.0.0.1:5500/respuesta.html'">Chi (⁠๑ꈍ⁠ᴗ⁠ꈍ⁠⁠๑⁠)</button>
                 <button class="no" onmouseover="moverBoton()">Ño .⁠·⁠´⁠¯⁠⁠(⁠>⁠▂⁠<⁠)⁠´⁠¯⁠⁠·⁠.</button>
                 <p id="mensaje" class="mensaje"></p>
             </div>
@@ -93,19 +93,15 @@
     </div>
 
     <script>
-        function abrirVentana() {
-            window.open("respuesta.html", "ventanaEmergente", "width=600,height=400");
-        }
-
         let posicion = 0;
         let direccion = 1;
         let tamanoSi = 20;
         let mensajes = [
-            "Yo sé que chi quieres ʕ⁠っ⁠•⁠ᴥ⁠•⁠ʔ⁠っ",
-            "¿Segura? :p",
-            "El 'Sí' está más bonito (⁠´⁠∩⁠｡⁠•⁠ ⁠ᵕ⁠ ⁠•⁠｡⁠∩⁠`⁠)",
-            "Tengo algo bonito para ti (⁠つ⁠✧⁠ω⁠✧⁠)⁠つ",
-            "¿Chegura? (⁠╥⁠﹏⁠╥⁠)"
+            "Yo se que chi quieres ʕ⁠っ⁠•⁠ᴥ⁠•⁠ʔ⁠っ",
+            "Segura? :p",
+            "El si esta mas bonito (⁠´⁠∩⁠｡⁠•⁠ ⁠ᵕ⁠ ⁠•⁠｡⁠∩⁠⁠)",
+            "tengo algo bonito para ti (⁠つ⁠✧⁠ω⁠✧⁠)⁠つ",
+            "Chegura? (⁠╥⁠﹏⁠╥⁠)"
         ];
         let indiceMensaje = 0;
 
@@ -116,11 +112,11 @@
             
             posicion += 400 * direccion;
             direccion *= -1; 
-            botonNo.style.transform = `translateX(${posicion}px)`;
+            botonNo.style.transform = translateX(${posicion}px);
             
             tamanoSi += 2;
-            botonSi.style.fontSize = `${tamanoSi}px`;
-            botonSi.style.padding = `${tamanoSi / 2}px ${tamanoSi}px`;
+            botonSi.style.fontSize = ${tamanoSi}px;
+            botonSi.style.padding = ${tamanoSi / 2}px ${tamanoSi}px;
             
             mensaje.textContent = mensajes[indiceMensaje];
             indiceMensaje = (indiceMensaje + 1) % mensajes.length;
